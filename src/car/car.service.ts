@@ -8,8 +8,12 @@ export class CarService {
         return this.cars;
     }
 
-    public async getCarById(id: number) {}
-    public async postCar(car: any) {}
+    public async postCar(car: any) {
+        return this.cars.push(car);
+    }
+    public async getCarById(id: number) {
+        return this.cars.find(car => car.id === id);
+    }
     public async deleteCar(id: number) {}
     public async updateCar(id: number, car: any) {}
 }
