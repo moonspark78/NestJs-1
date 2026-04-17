@@ -25,6 +25,13 @@ export class CarService {
         }
         this.cars.splice(index, 1);
         return this.cars;
+    } 
+    public async updateCar(id: number, propertyName: string, propertyValue: string) {
+         const index =  this.cars.findIndex(car => car.id === id);
+        if (index === -1) {
+            throw new HttpException('Car not found', 404);
+        }
+        this.cars[index][propertyName as keyof typeof this.cars[number]] = propertyValue;
+        return this.cars;
     }
-    public async updateCar(id: number, car: any) {}
 }
