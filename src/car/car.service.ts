@@ -3,7 +3,13 @@ import { CARS } from './cars.mock';
 
 @Injectable()
 export class CarService {
+    private cars = CARS;
     public async getCars() {
-        return {};
+        return this.cars;
     }
+
+    public async getCarById(id: number) {}
+    public async postCar(car: any) {}
+    public async deleteCar(id: number) {}
+    public async updateCar(id: number, car: any) {}
 }
