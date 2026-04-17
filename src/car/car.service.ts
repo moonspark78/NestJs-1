@@ -19,7 +19,12 @@ export class CarService {
         return car;
     }
     public async deleteCar(id: number) {
-        
+        const index =  this.cars.findIndex(car => car.id === id);
+        if (index === -1) {
+            throw new HttpException('Car not found', 404);
+        }
+        this.cars.splice(index, 1);
+        return this.cars;
     }
     public async updateCar(id: number, car: any) {}
 }
